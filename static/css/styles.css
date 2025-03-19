@@ -1,0 +1,16 @@
+body {
+    margin: 10px;
+}
+
+.link-to-page {
+    float: right;
+    margin: 10px 2px 0 2px;
+
+}
+.todo-list-header {
+    margin-bottom: 20px;
+}
+.task-list {
+  list-style-type: none;
+  line-height: 1.8;
+}

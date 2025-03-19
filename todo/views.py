@@ -40,12 +40,12 @@ class TaskDeleteView(generic.DeleteView):
 
 
 class TagListView(generic.ListView):
-    model = Task
+    model = Tag
     fields = "__all__"
 
 
 class TagDetailView(generic.DetailView):
-    model = Task
+    model = Tag
 
 
 class TagCreateView(generic.CreateView):
