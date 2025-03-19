@@ -27,4 +27,7 @@ class Task(models.Model):
             if self.deadline
             else "Not deadline"
         )
-        return f"{self.content}: {self.datetime.strftime("%m %d, %I:%M %p")}, deadline: {deadline_str}"
+        return (
+            f"{self.content}: {self.datetime.strftime('%m %d, %I:%M %p')}, "
+            f"deadline: {deadline_str}"
+        )

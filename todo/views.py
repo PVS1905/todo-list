@@ -10,12 +10,6 @@ class TaskListView(generic.ListView):
     fields = "__all__"
 
 
-class TaskDetailView(generic.DetailView):
-    model = Task
-    fields = "__all__"
-
-
-
 class TaskCreateView(generic.CreateView):
     model = Task
     fields = "__all__"
@@ -23,14 +17,18 @@ class TaskCreateView(generic.CreateView):
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
-        form.fields["deadline"].widget = DateTimeInput(attrs={"type": "datetime-local"}, format="%Y-%m-%dT%H:%M")
+        form.fields["deadline"].widget = DateTimeInput(
+            attrs={"type": "datetime-local"},
+            format="%Y-%m-%dT%H:%M"
+        )
+
         return form
 
 
 class TaskUpdateView(generic.UpdateView):
-     model = Task
-     fields = "__all__"
-     success_url = reverse_lazy("todo:task-list")
+    model = Task
+    fields = "__all__"
+    success_url = reverse_lazy("todo:task-list")
 
 
 class TaskDeleteView(generic.DeleteView):
