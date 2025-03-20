@@ -1,0 +1,63 @@
+[
+  {
+    "model": "todo.Tag",
+    "pk": 1,
+    "fields": {
+      "name": "Shopping"
+    }
+  },
+  {
+    "model": "todo.Tag",
+    "pk": 2,
+    "fields": {
+      "name": "Work"
+    }
+  },
+  {
+    "model": "todo.Tag",
+    "pk": 3,
+    "fields": {
+      "name": "Urgent"
+    }
+  },
+  {
+    "model": "todo.Tag",
+    "pk": 4,
+    "fields": {
+      "name": "Home"
+    }
+  },
+  {
+    "model": "todo.Task",
+    "pk": 1,
+    "fields": {
+      "content": "Buy groceries",
+      "datetime": "2025-02-25T10:00:00",
+      "deadline": "2025-02-25T12:00:00",
+      "is_done": false,
+      "tags": [1, 3]
+    }
+  },
+  {
+    "model": "todo.Task",
+    "pk": 2,
+    "fields": {
+      "content": "Finish project report",
+      "datetime": "2025-02-24T14:00:00",
+      "deadline": "2025-02-25T17:00:00",
+      "is_done": false,
+      "tags": [2, 3]
+    }
+  },
+  {
+    "model": "todo.Task",
+    "pk": 3,
+    "fields": {
+      "content": "Attend meeting with team",
+      "datetime": "2025-02-25T09:00:00",
+      "deadline": "2025-02-25T10:00:00",
+      "is_done": true,
+      "tags": [2]
+    }
+  }
+]
