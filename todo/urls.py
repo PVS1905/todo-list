@@ -5,11 +5,10 @@ from todo.views import (
     TaskDeleteView,
     TaskCreateView,
     TaskUpdateView,
-    toggle_assign_to_task,
     TagListView,
     TagCreateView,
     TagDeleteView,
-    TagUpdateView,
+    TagUpdateView, ToggleAssignDetailView,
 )
 
 urlpatterns = [
@@ -36,7 +35,7 @@ urlpatterns = [
          ),
     path(
         "task/<int:pk>/toggle-assign/",
-        toggle_assign_to_task,
+        ToggleAssignDetailView.as_view(),
         name="toggle-task-assign",
     ),
 

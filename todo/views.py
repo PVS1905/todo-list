@@ -1,7 +1,7 @@
 from django.forms import DateTimeInput
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views import generic, View
 from todo.models import Task, Tag
 
 
@@ -64,8 +64,10 @@ class TagDeleteView(generic.DeleteView):
     success_url = reverse_lazy("todo:tag-list")
 
 
-def toggle_assign_to_task(request, pk):
-    task = Task.objects.get(id=pk)
-    task.is_done = not task.is_done
-    task.save()
-    return HttpResponseRedirect(reverse_lazy("todo:task-list"))
+class ToggleAssignDetailView(generic.DetailView):
+    @staticmethod
+    def post(request, pk, *args, **kwargs):
+        task = Task.objects.get(id=pk)
+        task.is_done = not task.is_done
+        task.save()
+        return HttpResponseRedirect(reverse_lazy("todo:task-list"))

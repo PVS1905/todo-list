@@ -15,18 +15,20 @@
           {% if task.is_done %}
             <span style="color: green"><strong>Done</strong></span>
           {% else %}
-            <span style="color: red"><strong>Done</strong></span>
+            <span style="color: red"><strong>Not Done</strong></span>
           {% endif %}
-          {% if task.is_done %}
-            <a href="{% url 'todo:toggle-task-assign' pk=task.id %}" class="btn btn-secondary link-to-page">
-              Undo
-            </a>
-          {% else %}
-            <a href="{% url 'todo:toggle-task-assign' pk=task.id %}" class="btn btn-success link-to-page">
-              Complete
-            </a>
-          {% endif %}
-          <br>
+          <form method="post" action="{% url 'todo:toggle-task-assign' pk=task.id %}">
+              {% csrf_token %}
+                  {% if task.is_done %}
+                    <button type="submit" class="btn btn-secondary link-to-page" >
+                      Undo
+                    </button>
+                  {% else %}
+                    <button type="submit" class="btn btn-success link-to-page" >
+                      Complete
+                    </button>
+                  {% endif %}
+          </form>
           <span style="font-size: small">Created: {{ task.datetime|date:"F j, Y, g:i a" }}</span>
           {% if task.deadline %}
             <span style="color: #d36161; font-size: small">Deadline: {{ task.datetime|date:"F j, Y, g:i a" }}</span>
